@@ -1,0 +1,20 @@
+class Solution {
+  public:
+    int lowerBound(vector<int>& arr, int target) {
+        // code here
+        int low = 0;
+        int high = arr.size()-1;
+        int ans = arr.size();
+        while(low<=high){
+            int d = (low+high)/2;
+            if(arr[d]>=target){
+                ans = d;
+                high = d-1;
+            }
+            else{
+                low = d+1;
+            }
+        }
+        return ans;
+    }
+};
