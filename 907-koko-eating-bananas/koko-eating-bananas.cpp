@@ -10,7 +10,7 @@ public:
     long long calculateTotalhr(vector<int> &v,int mid){
         long long totalhr=0;
         for(int i=0;i<v.size();i++){
-            totalhr+=ceil((double)v[i]/(double)mid);
+            totalhr+=(v[i] + mid - 1) / mid;
         }
         return totalhr;
     }
