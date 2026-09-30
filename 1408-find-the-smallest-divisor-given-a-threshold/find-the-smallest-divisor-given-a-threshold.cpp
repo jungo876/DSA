@@ -3,7 +3,7 @@ public:
     int calculatesum(vector<int>& v,int mid){
         int sum = 0;
         for(int i=0;i<v.size();i++){
-            sum += ceil((double)v[i]/(double)mid);
+            sum += (v[i] + mid - 1) / mid;
         }
         return sum;
     }
