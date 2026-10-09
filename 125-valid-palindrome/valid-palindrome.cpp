@@ -16,9 +16,11 @@ public:
             }
             else if(!isalnum(s[left])){
                 left++;
+                continue;
             }
             else{
                 right--;
+                continue;
             }
             
         }
