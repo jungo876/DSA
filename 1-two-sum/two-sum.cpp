@@ -1,35 +1,28 @@
-// class Solution {
-// public:
-//     vector<int> twoSum(vector<int>& nums, int target) {
-//         unordered_map<int,int>mpp;
-//         for(int i = 0;i<nums.size();i++){
-//             mpp[nums[i]]=i;
-//         }
-//         for(auto it:mpp){
-//             int find = target-it.first;
-//             if(mpp.find(find)!=mpp.end()){
-//                 return {it.second,mpp[find]};
-//             }
-//         }
-//         return{};
-//     }
-// };
-
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int,int> mpp;
-
-        for(int i = 0; i < nums.size(); i++){
-            int find = target - nums[i];
-
-            if(mpp.find(find) != mpp.end()){
-                return {mpp[find], i};
-            }
-
-            mpp[nums[i]] = i;
+        vector<pair<int,int>> arr;
+        for(int i = 0;i<nums.size();i++){
+            arr.push_back({nums[i],i});
         }
-
+        sort(arr.begin(),arr.end());
+        int front = 0;
+        int end = arr.size()-1;
+        int sum = 0;
+        while(front<end){
+            sum = arr[front].first+arr[end].first;
+            if(sum==target){
+                return{arr[front].second,arr[end].second};
+            }
+            else {
+                if(sum<target){
+                    front++;
+                }
+                else{
+                    end--;
+                }
+            }
+        }
         return {};
     }
 };
